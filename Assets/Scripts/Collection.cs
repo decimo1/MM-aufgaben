@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Collection : MonoBehaviour
 {
-    private int score = 0;
+    private static int score = 0;
 
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Player")) {
