@@ -9,7 +9,7 @@ public class MenuScript : MonoBehaviour
 	
 	void Update(){
 		if (Input.GetKey(KeyCode.Escape)) {
-			if (Menu.isActiveAndEnabled == false) {
+			if (true) {
 				Menu.SetActive(true);
 				Time.timeScale = 0;
 			} else {
