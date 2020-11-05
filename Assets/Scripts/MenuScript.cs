@@ -12,11 +12,11 @@ public class MenuScript : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 			counter++;
 			if (counter%2==1) {
-				Menu.SetActive(false);
-				Time.timeScale = 1;
-			} else {
 				Menu.SetActive(true);
 				Time.timeScale = 0;
+			} else {
+				Menu.SetActive(false);
+				Time.timeScale = 1;
 			}
 		}
 	}
@@ -28,5 +28,6 @@ public class MenuScript : MonoBehaviour
 	public void ReturnClick(){
 		Menu.SetActive(false);
 		Time.timeScale = 1;
+		counter++;
 	}	
 }
