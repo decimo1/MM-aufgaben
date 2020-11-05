@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 995768127}
   - component: {fileID: 995768126}
   m_Layer: 0
-  m_Name: Kugel
+  m_Name: SphereController
   m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 1422749431}
   - component: {fileID: 1422749430}
   m_Layer: 0
-  m_Name: Area
+  m_Name: Surface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

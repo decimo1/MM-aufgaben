@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Prefab : MonoBehaviour
+public class SphereCreation : MonoBehaviour
 {
     public Transform myPrefab;
     ArrayList list;
