@@ -22,6 +22,7 @@ public class MenuScript : MonoBehaviour
 	}
 
 	public void RestartClick(){
+		Time.timeScale = 1;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
