@@ -6,8 +6,9 @@ using UnityEngine.XR.ARFoundation;
 public class ImageHandler : MonoBehaviour
 {
     [SerializeField] ARTrackedImageManager _trackedImageManager;
-    [SerializeField] GameObject _content;
-
+   // [SerializeField] GameObject _player;
+   // [SerializeField] GameObject _surface;
+    [SerializeField] GameObject _parent;
     private void Start()
     {
         if(!_trackedImageManager) {
@@ -22,8 +23,11 @@ public class ImageHandler : MonoBehaviour
 	foreach(var trackedImage in eventArgs.added){
             var minLocalScalar = Mathf.Min(trackedImage.size.x, trackedImage.size.y) / 2;
             trackedImage.transform.localScale = new Vector3(minLocalScalar, minLocalScalar, minLocalScalar);
-	    _content.transform.parent = trackedImage.transform;
-	    _content.transform.localScale = Vector3.one;
+	    _parent.transform.parent = trackedImage.transform; 
+	    //_surface.transform.parent = trackedImage.transform;
+	    //_surface.transform.localScale = Vector3.one;
+	    //_player.transform.parent = trackedImage.transform;
+	    //_player.transform.localScale = Vector3.one;
         }
     }
 }

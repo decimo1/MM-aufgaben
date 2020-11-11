@@ -6,19 +6,19 @@ public class SphereCreation : MonoBehaviour
 {
     public Transform myPrefab;
     ArrayList list;
-    Vector3 vector;
-    Vector3 scaleVector;
-
-    // Start is called before the first frame update
+    Vector3 vector; 
+    Transform clone;
+    public GameObject parent;
+   
     void Start()
     {
-	//scaleVector = new Vector3(0.01f,0.01f,0.01f);
         list = new ArrayList();
         for (int i=0; i<5; i++) {
             do {
-                vector = new Vector3(UnityEngine.Random.Range(-5,5)/100,1,UnityEngine.Random.Range(-5,5)/100);
+                vector = new Vector3(UnityEngine.Random.Range(-5,5)/100f,0.01f,UnityEngine.Random.Range(-5,5)/100f);
             } while (list.Contains(vector));
-            Instantiate(myPrefab,vector,new Quaternion(0,0,0,1));
+            clone = Instantiate(myPrefab,vector,new Quaternion(0,0,0,1));
+	    clone.parent = parent.transform;
             list.Add(vector);
         }
     }
