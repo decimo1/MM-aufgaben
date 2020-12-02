@@ -9,11 +9,12 @@ public class PlayerBehaviourSystem : SystemBase
 {
     protected override void OnUpdate()
     {
-       Entities.ForEach((ref PlayerComponent comp, ref Translation trans, ref Rotation rot) =>
+       Entities.WithoutBurst().ForEach((ref PlayerComponent comp, ref Translation trans, ref Rotation rot) =>
        {
-          comp.rotationAngle+=Input.GetAxis("Horizontal");
+          comp.rotationAngle+=Input.GetAxis("Horizontal")/10;
           float3 targetDirection = new float3(math.sin(comp.rotationAngle), 0, math.cos(comp.rotationAngle));
-          rot.value = quaternion.LookRotationSafe(targetDirection/*forward*/, comp.rotationAngle/*up*/);
-       }).Schedule();
+          rot.Value = Quaternion.LookRotation(targetDirection/*forward*/, Vector3.up);
+          trans.Value += targetDirection * comp.speed * Input.GetAxis("Vertical")/10;
+       }).Run();
     }
 }
