@@ -13,7 +13,7 @@ public class PlayerBehaviourSystem : SystemBase
        {
           comp.rotationAngle+=Input.GetAxis("Horizontal")/10;
           float3 targetDirection = new float3(math.sin(comp.rotationAngle), 0, math.cos(comp.rotationAngle));
-          rot.Value = Quaternion.LookRotation(targetDirection/*forward*/, Vector3.up);
+          rot.Value = quaternion.LookRotationSafe(targetDirection/*forward*/, Vector3.up);
           trans.Value += targetDirection * comp.speed * Input.GetAxis("Vertical")/10;
        }).Run();
     }
